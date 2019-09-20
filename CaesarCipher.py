@@ -1,18 +1,10 @@
-def convert_letter(method, character, shift):
+def choose_method(method, character, shift):
     ascii_code = ord(character)
     if method == 'encrypt':
         number = ((ascii_code - 96) + shift) % 26
-        return number
     elif method == 'decrypt':
         number = ((ascii_code - 96) - shift) % 26
-        return number
-
-
-def choose_method(method, character, shift):
-    if method == 'encrypt':
-        return chr(convert_letter(method, character, shift) + 96)
-    elif method == 'decrypt':
-        return chr(convert_letter(method, character, shift) + 96)
+    return chr(number + 96)
 
 
 def caesar_cipher(method, sentence, shift):
